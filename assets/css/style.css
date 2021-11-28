@@ -1,0 +1,347 @@
+/* Google fonts: https://fonts.google.com/specimen/Press+Start+2P#standard-styles */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+/* 
+   Targets all elements and includes the padding and border
+   in an elements total width and height 
+*/
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(../images/background-img.png);
+}
+
+br {
+  margin-bottom: 1rem;
+}
+
+/* Uses absolute positioning to center the container */
+.wrapper {
+  font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../images/background-img.png");
+}
+
+header {
+  display: flex;
+}
+
+.score-div {
+  display: inline-block;
+  font-size: 2rem;
+  color: blanchedalmond;
+  text-indent: 3rem;
+  text-shadow: 1px 0px 4px black;
+}
+
+.current-score {
+  font-size: 2rem;
+  display: inline-block;
+  margin-top: 0.5em;
+  margin-left: -5.8rem;
+  color: blanchedalmond;
+  text-indent: 3em;
+  text-shadow: 1px 0px 4px black;
+}
+
+.timer {
+  color: blanchedalmond;
+  display: inline-block;
+  position: absolute;
+  right: 3rem;
+  text-indent: 6em;
+  text-shadow: 1px 0px 4px black;
+  font-size: 2em;
+}
+
+/* ----- START GAME CARD----- */
+.game-card-info {
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background-color: rgba(222, 184, 135, 0.85);
+  position: absolute; /* Absolute positiong used to center card inside wrapper */
+  top: inherit;
+  left: inherit;
+  transform: inherit;
+  z-index: 201; /* Pushes the game card to the top so it can always be interacted with */
+}
+
+.game-card-heading {
+  font-size: 1.5rem;
+  color: blanchedalmond;
+  text-shadow: 1px 2px 4px black;
+  padding: 1.85rem 0px;
+}
+.game-story,
+.game-instructions {
+  font-size: 0.75rem;
+  color: white;
+  text-shadow: -1px 1px 4px black;
+}
+
+.button-container {
+  margin-top: 3rem;
+}
+
+.start-button {
+  position: relative;
+  color: white;
+  font-family: inherit;
+  padding: 0 0.5em;
+  background-color: rgba(0, 0, 0, 0.13);
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 4px black;
+}
+
+/* Styles the start button when the mouse hovers over */
+.start-button:hover {
+  color: rgba(0, 0, 0, 0.2);
+  background-color: blanchedalmond;
+  box-shadow: 1px 0px 4px black;
+}
+
+/* Styles the start button when the mouse clicks the button */
+.start-button:active {
+  border: 1px solid gray;
+  text-shadow: 0px 0px 0px grey;
+}
+
+/* Hides the game card when the start button is clicked */
+section.game-card-hide {
+  visibility: hidden;
+  z-index: 0;
+}
+
+/* ----- END GAME CARD ----- */
+.end-game-card {
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background-color: rgba(222, 184, 135, 0.85);
+  position: absolute; /* Absolute positiong used to center card inside wrapper */
+  top: inherit;
+  left: inherit;
+  transform: inherit;
+  z-index: 201;
+}
+
+.end-game-heading {
+  font-size: 2rem;
+  color: blanchedalmond;
+  text-shadow: 1px 2px 4px black;
+  padding: 1.85rem 0px;
+}
+
+.end-game-para {
+  font-size: 1rem;
+  color: blanchedalmond;
+  text-shadow: 1px 2px 4px black;
+  padding: 1.85rem 0px;
+}
+
+div.d-inline-block {
+  padding-top: 1.75rem;
+}
+
+.play-again {
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0 0.5em;
+  background-color: rgba(0, 0, 0, 0.13);
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 4px black;
+}
+
+/* Styles the end game buttons when the mouse hovers over */
+.play-again:hover {
+  color: rgba(0, 0, 0, 0.2);
+  background-color: blanchedalmond;
+  box-shadow: 1px 0px 4px black;
+}
+
+/* Styles the end game buttons when the mouse hovers clicks them */
+.play-again:active {
+  border: 1px solid gray;
+  text-shadow: 0px 0px 0px grey;
+}
+
+/* Hides End Game card */
+.end-game-hide {
+  visibility: hidden;
+}
+
+/* Shows end game card when game ends */
+section.end-game-show {
+  visibility: unset;
+}
+
+/* ----- GAME AREA, HOLES AND MOLES ----- */
+.game {
+  /*border: 2px solid brown; /* Used to help with layout of game area */
+  width: 100%;
+  height: 91%;
+  position: relative;
+  display: flex; /* display and flex-wrap used contain the holes in .game */
+  flex-wrap: wrap;
+  z-index: 200; /* Pushes the game section to the top so it can always be interacted with */
+}
+
+.hole {
+  flex: 1 33.3%; /* Flex-grow and flex-basis to evenly portion the holes: https://css-tricks.com/almanac/properties/f/flex/ */
+  position: relative;
+  overflow: hidden; /* hides the mole */
+  background: url("../images/mole-hole.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-position-y: 112%;
+}
+
+.hole1,
+.hole2,
+.hole3 {
+  /* drops the top 3 holes down  */
+  top: 2rem;
+}
+
+.hole1,
+.hole4,
+.hole7 {
+  /* pushes the left 3 holes to the right  */
+  left: 3rem;
+}
+
+.hole3,
+.hole6,
+.hole9 {
+  /* pushes the right 3 holes to the left  */
+  right: 4rem;
+}
+
+.hole7,
+.hole8,
+.hole9 {
+  /* pushes the bottom 3 holes up  */
+  bottom: 32px;
+}
+
+.mole {
+  background: url("../images/mole.png") center / 9rem no-repeat;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  position: absolute;
+  z-index: 0;
+  top: 100%; /* Hides the mole */
+}
+
+.hole.up .mole {
+  top: 28%; /* JS will call this class making the moles pop up */
+}
+
+/* ----- FOOTER ----- */
+footer {
+  display: inline;
+  width: 100%;
+}
+
+.mute-button {
+  font-size: 3rem;
+  position: absolute;
+  right: 0;
+  top: 11.3%;
+  z-index: 205;
+  color: blanchedalmond;
+  text-shadow: 2px 0px 6px black;
+}
+
+.mute-button:hover {
+  color: lightgray;
+  text-shadow: 2px 0px 8px black;
+}
+
+.mute-button:active {
+  color: blanchedalmond;
+  text-shadow: 2px 0px 6px black;
+}
+
+/* ----- BREAKPOINTS ----- */
+/* mobile devices  */
+@media only screen and (min-width: 320px) and (max-width: 812px) {
+  body {
+    overflow: hidden;
+  }
+
+  .score-div{
+    font-size: 1rem;
+    margin-left: -1.75rem;
+  }
+
+  .current-score {
+    font-size: 1rem;
+    margin-left: -2.8rem;
+  }
+
+  .timer {
+    right: 0rem;
+    font-size: 1rem;
+  }
+
+  .game-card-info {
+    width: 98vmin; /* Prevents the score and timer begin blocked by the game-info-card */
+    
+  }
+
+  .game-card-heading {
+    padding: 0;
+  }
+
+  .hole3, .hole6, .hole9 {
+    right: -1rem;
+}
+
+.hole1, .hole4, .hole7 {
+  left: -1rem;
+}
+
+.mole {
+  background: url("../images/mole.png") center / 7.5rem no-repeat;
+}
+
+.mute-button {
+  font-size: 2rem;
+  top: 7.3%;
+}
+
+.end-game-heading{
+  font-size: 1.5rem;
+}
+}
+
+
+
+/* Tablets  */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .hole {
+    background-position-y: 108%;
+  }
+  .mole {
+    height: 111%;
+  }
+}
