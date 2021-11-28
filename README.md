@@ -3,7 +3,6 @@
 Here is the [MoleGame](https://ebuzeryalcin.github.io/MoleGame/), Enjoy!
 
 ## Deployment
-***
 ### Deploy
 
 - Select the repository on GitHub for this project where all the code is stored.
