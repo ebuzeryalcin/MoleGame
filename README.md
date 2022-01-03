@@ -1,5 +1,7 @@
 # MoleGame
 
+![Desktop and mobile wireframe sample](assets/images/mole-game.webp)
+
 Here is the [MoleGame](https://ebuzeryalcin.github.io/MoleGame/), Enjoy!
 
 ## Deployment
